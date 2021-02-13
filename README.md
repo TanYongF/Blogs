@@ -25,3 +25,8 @@
 #### 6. 后台添加博客  博客主页刷新即可更新.
 
 ##### *注:  如果要修改端口号  主配置文件即可修改
+
+## 三.赞赏
+#### 如果觉得这个项目有趣,欢迎请作者喝一杯茶!
+
+  ![image](https://github.com/lexsaints/powershell/blob/master/IMG/ps2.png)
