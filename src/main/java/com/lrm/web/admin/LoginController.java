@@ -44,6 +44,9 @@ public class LoginController {
             user.setPassword(null);
             session.setAttribute("user",user);
             session.setAttribute("aboutMeImageUrl",websiteInfoService.getAboutMeImageUrl());
+            session.setAttribute("topTitle",websiteInfoService.getTopTitle());
+            session.setAttribute("topTitle",websiteInfoService.getTopTitle());
+            session.setAttribute("aboutMeContent",websiteInfoService.getAboutMeContent());
             return "admin/index";
         } else {
             attributes.addFlashAttribute("message", "用户名和密码错误");
