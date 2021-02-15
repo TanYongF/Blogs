@@ -1,8 +1,8 @@
-# <center>杜少雄的个人博客代码托管仓库</center>
+# <center>杜少雄的个人博客</center>
 
 ## 项目已成功部署至阿里云服务器 预览访问地址 : www.ShaoxiongDu.top
 
-## 一.项目介绍
+## 一.项目技术背景
 
 #### * 项目采用SpringBoot框架 前端采用比较流行的Semantic UI
 
