@@ -1,11 +1,10 @@
 package com.lrm.web;
 
-import com.lrm.NotFoundException;
 import com.lrm.service.BlogService;
 import com.lrm.service.TagService;
 import com.lrm.service.TypeService;
 import com.lrm.service.WebsiteInfoService;
-import com.lrm.vo.BlogQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -38,12 +37,12 @@ public class IndexController {
     private WebsiteInfoService websiteInfoService;
 
     @GetMapping("/")
-    public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String index(@PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model,
                         HttpSession session) {
         model.addAttribute("page",blogService.listBlog(pageable));
-        model.addAttribute("types", typeService.listTypeTop(10));
-        model.addAttribute("tags", tagService.listTagTop(10));
+        model.addAttribute("types", typeService.listType());
+        model.addAttribute("tags", tagService.listTag());
         model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));
         session.setAttribute("views",websiteInfoService.addOneForViews());
         session.setAttribute("aboutMeImageUrl",websiteInfoService.getAboutMeImageUrl());
@@ -54,7 +53,7 @@ public class IndexController {
 
 
     @PostMapping("/search")
-    public String search(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query, Model model) {
         model.addAttribute("page", blogService.listBlog("%"+query+"%", pageable));
         model.addAttribute("query", query);
@@ -69,7 +68,7 @@ public class IndexController {
 
     @GetMapping("/footer/newblog")
     public String newblogs(Model model) {
-        model.addAttribute("newblogs", blogService.listRecommendBlogTop(6));
+        model.addAttribute("newblogs", blogService.listRecommendBlogTop(7));
         return "_fragments :: newblogList";
     }
 

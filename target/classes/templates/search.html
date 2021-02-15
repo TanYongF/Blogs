@@ -63,10 +63,10 @@
                       <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}" ></a></div>
                     </div>
                     <div class="item">
-                      <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></span>
+                      <span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}"></span>
                     </div>
                     <div class="item">
-                      <i class="eye icon"></i>浏览量 <span th:text="${blog.valueName}"></span>
+                      浏览量 <span th:text="${blog.valueName}"></span>
                     </div>
                   </div>
                 </div>

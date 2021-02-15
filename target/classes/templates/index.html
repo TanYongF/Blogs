@@ -45,7 +45,7 @@
           <div class="ui top attached segment">
             <div class="ui middle aligned two column grid">
               <div class="column">
-                <h3 class="ui teal header"><i class="list ol icon"></i>博客列表</h3>
+                <h3 class="ui teal header">博客列表</h3>
               </div>
               <div class="right aligned column">
                 共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${page.totalElements}"></h2> 篇
@@ -60,7 +60,7 @@
               <div class="ui middle aligned mobile reversed stackable grid" >
                 <div class="eleven wide column">
                   <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">?</a></h3>
-                  <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black"><p  th:text="|${blog.description}......|"></p></a>
+                  <p  th:text="|${blog.description}......|"></p>
                   <div class="ui grid">
                     <div class="eleven wide column">
                       <div class="ui mini horizontal link list">
@@ -69,10 +69,10 @@
                           <div class="content"><a th:href="@{/about}" target="_blank" class="header" th:text="${blog.user.nickname}" ></a></div>
                         </div>
                         <div class="item">
-                          <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></span>
+                          <h6 th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}"></h6>
                         </div>
                         <div class="item">
-                          <i class="eye icon"></i> <span th:text="${blog.views}"></span>
+                          <h6 th:text="'浏览量:' + ${blog.views}"></h6>
                         </div>
                       </div>
                     </div>
@@ -84,7 +84,7 @@
 
                 <div class="five wide column">
                   <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
-                    <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}"  class="ui rounded image">
+                    <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}" border="1" class="ui medium bordered  rounded image">
                   </a>
                 </div>
 
@@ -115,7 +115,7 @@
             <div class="ui secondary segment">
               <div class="ui two column grid">
                 <div class="column">
-                  <h3><i class="bars icon"></i>博客分类</h3>
+                  <h3>博客分类</h3>
                 </div>
                 <div class="right aligned column">
                   <a href="#" th:href="@{types/-1}" target="_blank"><h4>更多<i class="angle double right icon"></i></h4></a>
@@ -138,7 +138,7 @@
             <div class="ui secondary segment">
               <div class="ui two column grid">
                 <div class="column">
-                  <h3><i class="tags icon"></i>博客标签</h3>
+                  <h3>博客标签</h3>
                 </div>
                 <div class="right aligned column">
                   <a href="#" th:href="@{tags/-1}" target="_blank"><h4>更多<i class="angle double right icon"></i></h4></a>
@@ -163,18 +163,7 @@
             </div>
           </div>
 
-          <br><br><br>
-          <!--开源区域-->
-          <div class="me-margin-top-large">
-            <div class="ui horizontal header divider ">
-              此项目已开源
-            </div>
-            <div class="ui card centered" style="width: 11em">
-              <a target="_blank" href="https://github.com/ShaoxiongDu/ShaoxiongDu_Blog">
-                <img th:src="@{images/openSourceUrl.jpg}" src="../static/images/开源地址.png" title="扫码或者点击访问开源地址" class="ui rounded image">
-              </a>
-            </div>
-          </div>
+
         </div>
 
       </div>

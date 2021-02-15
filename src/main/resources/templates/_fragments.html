@@ -54,16 +54,17 @@
 
       <!--微信二维码-->
       <div class="four wide column">
+        <h4 class="ui inverted header me-opacity-mini" >项目开源</h4>
         <div class="ui inverted link list">
 
-            <a class="item" href="#"><img th:src="@{/images/wechat.jpg}" title="扫码添加作者微信"  class="ui rounded image" alt="哎呀 微信二维码不见啦" style="width: 110px"></a>
+            <a class="item" href="#"><img th:src="@{/images/openSourceUrl.jpg}" title="扫码或者点击访问开源地址"  class="ui rounded image"  style="width: 100px"></a>
 
         </div>
       </div>
 
       <!--推荐博客-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini" >最新博客</h4>
+        <h4 class="ui inverted header me-opacity-mini" >最新推荐</h4>
         <div id="newblog-container">
           <div class="ui inverted link list" th:fragment="newblogList">
             <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>
@@ -82,7 +83,7 @@
         </div>
       </div>
       <!--个人说明-->
-      <!--个人说明-->
+
       <div class="four wide column">
         <h4 class="ui inverted header me-opacity-mini">Blog</h4>
         <div class="ui inverted list link">
@@ -93,14 +94,11 @@
       </div>
     </div>
     <div class="ui inverted section divider"></div>
-    <!--版权说明-->
 
 
     <!--ICP备案号-->
     <div class="ui inverted list link">
-      <p class="item">Copyright© 2020-2021 杜少雄 All Rights Reserved</p>
-      <p class="item">通讯地址: 山西省太原市晋源区太原科技大学南校区</p>
-      <a class="item" target="_blank" href='https://beian.miit.gov.cn/'>晋ICP备2020012997号-1</a>
+      <p style="color: #AAAAAA" >版权所有© 2020-2021 杜少雄 保留所有权利 <a style="color:#AAAAAA;" target="_blank" href='https://beian.miit.gov.cn/'>晋ICP备2020012997号-1</a> </p>
 
     </div>
   </div>
