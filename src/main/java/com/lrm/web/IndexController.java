@@ -1,14 +1,17 @@
 package com.lrm.web;
 
-import com.lrm.service.BlogService;
-import com.lrm.service.TagService;
-import com.lrm.service.TypeService;
-import com.lrm.service.WebsiteInfoService;
+import com.alibaba.fastjson.JSONObject;
 
+import com.lrm.po.Record;
+import com.lrm.service.*;
+
+import com.lrm.util.HttpClient;
+import com.lrm.util.IPUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +19,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 /**
  * Created by limi on 2017/10/13.
@@ -26,6 +31,9 @@ public class IndexController {
 
     @Autowired
     private BlogService blogService;
+
+    @Autowired
+    private RecordService recordService;
 
     @Autowired
     private TypeService typeService;
@@ -39,7 +47,8 @@ public class IndexController {
     @GetMapping("/")
     public String index(@PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model,
-                        HttpSession session) {
+                        HttpSession session,
+                        HttpServletRequest httpServletRequest) {
         model.addAttribute("page",blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listType());
         model.addAttribute("tags", tagService.listTag());
@@ -48,6 +57,23 @@ public class IndexController {
         session.setAttribute("aboutMeImageUrl",websiteInfoService.getAboutMeImageUrl());
         session.setAttribute("topTitle",websiteInfoService.getTopTitle());
         session.setAttribute("aboutMeContent",websiteInfoService.getAboutMeContent());
+
+        /*网站访问记录*/
+        String ip = IPUtils.getIpAddr(httpServletRequest);
+        Record record = new Record();
+        record.setIp(ip);
+        record.setDateTime(new Date());
+        String getAddressByIpRequestUrl = "https://restapi.amap.com/v3/ip?key=0113a13c88697dcea6a445584d535837";
+
+        //拼接参数
+        getAddressByIpRequestUrl += "&IP="+ip;
+        String result = HttpClient.doGet(getAddressByIpRequestUrl);
+        JSONObject ipObject = JSONObject.parseObject(result);
+        System.out.println(ipObject);
+        record.setAddress(ipObject.getString("province")+ipObject.getString("city"));
+        record.setRectangle(ipObject.getString("rectangle"));
+        recordService.recording(record);
+
         return "index";
     }
 

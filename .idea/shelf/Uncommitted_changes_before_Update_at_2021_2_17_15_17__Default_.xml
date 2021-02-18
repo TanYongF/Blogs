@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_2021_2_17_15_17_[Default]" date="1613546257068" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_2_17_15_17_[Default]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2021/2/17 15:17 [Default]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/blog-0.0.1-SNAPSHOT.jar.original" />
+    <option name="AFTER_PATH" value="target/blog-0.0.1-SNAPSHOT.jar.original" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_2_17_15_17_[Default]/blog-0.0.1-SNAPSHOT.jar.original" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/blog-0.0.1-SNAPSHOT.jar" />
+    <option name="AFTER_PATH" value="target/blog-0.0.1-SNAPSHOT.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_2_17_15_17_[Default]/blog-0.0.1-SNAPSHOT.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/lrm/web/IndexController.class" />
+    <option name="AFTER_PATH" value="target/classes/com/lrm/web/IndexController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_2_17_15_17_[Default]/IndexController.class" />
+  </binary>
+</changelist>

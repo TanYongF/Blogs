@@ -44,17 +44,13 @@
 <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
   <div class="ui center aligned container">
 
-    <h3 class="item">网站总访问量 : <span th:text="${session.views}" class="item m-text-thin"></span></h3>
-
-    <h3 class="item">&nbsp;&nbsp;&nbsp;已持续运行时间:<span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp;  </h3>
-
     <br><br>
 
     <div class="ui inverted divided stackable grid">
 
       <!--微信二维码-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini" >项目开源</h4>
+        <h4 class="ui inverted header me-opacity-mini" >此项目开源地址</h4>
         <div class="ui inverted link list">
 
             <a class="item" href="#"><img th:src="@{/images/openSourceUrl.jpg}" title="扫码或者点击访问开源地址"  class="ui rounded image"  style="width: 100px"></a>

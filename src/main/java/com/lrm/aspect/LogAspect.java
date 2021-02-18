@@ -1,15 +1,21 @@
 package com.lrm.aspect;
 
+import com.lrm.dao.RecordRepository;
+import com.lrm.po.Record;
+import com.lrm.service.RecordService;
+import com.lrm.util.HttpClient;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * Created by limi on 2017/10/13.
@@ -34,6 +40,7 @@ public class LogAspect {
         Object[] args = joinPoint.getArgs();
         RequestLog requestLog = new RequestLog(url, ip, classMethod, args);
         logger.info("Request : {}", requestLog);
+
     }
 
     @After("log()")
