@@ -56,16 +56,18 @@
 
           <tr align="center">
             <th>记录ID</th>
-            <th>访问时间</th>
-            <th>访问Ip地址</th>
-            <th>访问位置</th>
-            <th>访问经纬度</th>
+            <th>访问总次数</th>
+            <th>上次访问时间</th>
+            <th>访问IP地址</th>
+            <th>访问地区</th>
+            <th>访问地区经纬度</th>
           </tr>
           </thead>
           <tbody>
           <tr align="center" th:each="record : ${recordList}">
             <td th:text="${record.id}"></td>
-            <td th:text="${#dates.format(record.dateTime,'yyyy年MM月dd号  HH时mm分ss秒')}"></td>
+            <td th:text="${record.totalNumberOfVisits}+'次'"></td>
+            <td th:text="${#dates.format(record.lastVisitTime,'yyyy年MM月dd号  HH时mm分ss秒')}"></td>
             <td th:text="${record.ip}"></td>
             <td th:text="${record.address}"></td>
             <td th:text="${record.rectangle}"></td>

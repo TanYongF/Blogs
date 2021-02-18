@@ -19,7 +19,7 @@ public class Record {
     private String address;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateTime;
+    private Date lastVisitTime;
 
     /*所在城市经纬度*/
     private String rectangle;
@@ -30,9 +30,23 @@ public class Record {
                 "id=" + id +
                 ", ip='" + ip + '\'' +
                 ", address='" + address + '\'' +
-                ", dateTime=" + dateTime +
+                ", lastVisitTime=" + lastVisitTime +
                 ", rectangle='" + rectangle + '\'' +
+                ", totalNumberOfVisits=" + totalNumberOfVisits +
                 '}';
+    }
+
+    /**
+     * 访问总次数
+     */
+    private Long totalNumberOfVisits;
+
+    public Long getTotalNumberOfVisits() {
+        return totalNumberOfVisits;
+    }
+
+    public void setTotalNumberOfVisits(Long totalNumberOfVisits) {
+        this.totalNumberOfVisits = totalNumberOfVisits;
     }
 
     public String getRectangle() {
@@ -67,12 +81,12 @@ public class Record {
         this.address = address;
     }
 
-    public Date getDateTime() {
-        return dateTime;
+    public Date getLastVisitTime() {
+        return lastVisitTime;
     }
 
-    public void setDateTime(Date dateTime) {
-        this.dateTime = dateTime;
+    public void setLastVisitTime(Date dateTime) {
+        this.lastVisitTime = dateTime;
     }
 
     public Record() {

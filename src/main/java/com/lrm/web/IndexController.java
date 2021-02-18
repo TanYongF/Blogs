@@ -58,21 +58,8 @@ public class IndexController {
         session.setAttribute("topTitle",websiteInfoService.getTopTitle());
         session.setAttribute("aboutMeContent",websiteInfoService.getAboutMeContent());
 
-        /*网站访问记录*/
-        String ip = IPUtils.getIpAddr(httpServletRequest);
-        Record record = new Record();
-        record.setIp(ip);
-        record.setDateTime(new Date());
-        String getAddressByIpRequestUrl = "https://restapi.amap.com/v3/ip?key=0113a13c88697dcea6a445584d535837";
-
-        //拼接参数
-        getAddressByIpRequestUrl += "&IP="+ip;
-        String result = HttpClient.doGet(getAddressByIpRequestUrl);
-        JSONObject ipObject = JSONObject.parseObject(result);
-        System.out.println(ipObject);
-        record.setAddress(ipObject.getString("province")+ipObject.getString("city"));
-        record.setRectangle(ipObject.getString("rectangle"));
-        recordService.recording(record);
+        //网站访问记录
+        recordService.recording(httpServletRequest);
 
         return "index";
     }
