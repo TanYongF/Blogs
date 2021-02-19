@@ -2,12 +2,15 @@ package com.lrm.service;
 
 import com.lrm.dao.CommentRepository;
 import com.lrm.po.Comment;
+import com.lrm.util.HttpClient;
+import com.lrm.util.PushWechatMessageUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,6 +39,19 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     @Override
     public Comment saveComment(Comment comment) {
+
+        String title = "博客评论通知";
+
+        String content =
+                "评论博客标题:"+comment.getBlog().getTitle()+
+                "<br>用户名称:"+comment.getNickname()+
+                "<br>用户邮箱:"+comment.getEmail()+
+                "<br>评论内容:"+comment.getContent()+
+                "<br>评论时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+
+        String result = PushWechatMessageUtil.pushMessageByPost(title,content);
+        System.out.println("result = " + result);
+
         Long parentCommentId = comment.getParentComment().getId();
         if (parentCommentId != -1) {
             comment.setParentComment(commentRepository.findOne(parentCommentId));

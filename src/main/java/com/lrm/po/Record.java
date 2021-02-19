@@ -21,19 +21,16 @@ public class Record {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastVisitTime;
 
-    /*所在城市经纬度*/
-    private String rectangle;
 
     @Override
     public String toString() {
-        return "Record{" +
-                "id=" + id +
-                ", ip='" + ip + '\'' +
-                ", address='" + address + '\'' +
-                ", lastVisitTime=" + lastVisitTime +
-                ", rectangle='" + rectangle + '\'' +
-                ", totalNumberOfVisits=" + totalNumberOfVisits +
-                '}';
+        return "访问记录[" +
+                "记录ID:" + id +
+                ", IP='" + ip + '\'' +
+                ", 地区='" + address + '\'' +
+                ", 访问时间=" + lastVisitTime +
+                ", 总访问次数=" + totalNumberOfVisits +
+                ']';
     }
 
     /**
@@ -49,13 +46,7 @@ public class Record {
         this.totalNumberOfVisits = totalNumberOfVisits;
     }
 
-    public String getRectangle() {
-        return rectangle;
-    }
 
-    public void setRectangle(String rectangle) {
-        this.rectangle = rectangle;
-    }
 
     public Long getId() {
         return id;

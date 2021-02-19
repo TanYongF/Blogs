@@ -5,10 +5,12 @@ import com.lrm.dao.RecordRepository;
 import com.lrm.po.Record;
 import com.lrm.util.HttpClient;
 import com.lrm.util.IPUtils;
+import com.lrm.util.PushWechatMessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -29,20 +31,31 @@ public class RecordServiceImpl implements RecordService {
             record = new Record();
             record.setIp(ip);
             record.setLastVisitTime(new Date());
-            String getAddressByIpRequestUrl = "https://restapi.amap.com/v3/ip?key=0113a13c88697dcea6a445584d535837";
             record.setTotalNumberOfVisits(new Long(1));
-            getAddressByIpRequestUrl += "&IP="+ip;
+            String getAddressByIpRequestUrl = "https://www.maitube.com/ip/?ip="+record.getIp();
+
             String result = HttpClient.doGet(getAddressByIpRequestUrl);
-            JSONObject ipObject = JSONObject.parseObject(result);
-            System.out.println(ipObject);
-            record.setAddress(ipObject.getString("province")+ipObject.getString("city"));
-            record.setRectangle(ipObject.getString("rectangle"));
+
+            record.setAddress(result.substring(15,result.length()));
+
+            Record saveRecord =  recordRepository.save(record);
+
+            /*推送微信消息*/
+            String title = "新的IP地址访问通知";
+            String content =
+                    "访问记录ID:" + saveRecord.getId()+
+                    "<br>访问IP地址:"+record.getIp()+
+                    "<br>访问地区:"+record.getAddress()+
+                    "<br>访问时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+            PushWechatMessageUtil.pushMessageByPost(title,content);
+
+            return;
         }else {
             record.setLastVisitTime(new Date());
             record.setTotalNumberOfVisits(record.getTotalNumberOfVisits()+1);
+            recordRepository.save(record);
         }
 
-        recordRepository.save(record);
     }
 
     @Override

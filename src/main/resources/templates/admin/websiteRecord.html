@@ -58,9 +58,8 @@
             <th>记录ID</th>
             <th>访问总次数</th>
             <th>上次访问时间</th>
-            <th>访问IP地址</th>
+            <th>IP地址</th>
             <th>访问地区</th>
-            <th>访问地区经纬度</th>
           </tr>
           </thead>
           <tbody>
@@ -70,7 +69,6 @@
             <td th:text="${#dates.format(record.lastVisitTime,'yyyy年MM月dd号  HH时mm分ss秒')}"></td>
             <td th:text="${record.ip}"></td>
             <td th:text="${record.address}"></td>
-            <td th:text="${record.rectangle}"></td>
           </tr>
           </tbody>
 
