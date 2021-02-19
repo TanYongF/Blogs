@@ -9,8 +9,12 @@ import com.lrm.util.PushWechatMessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +40,7 @@ public class RecordServiceImpl implements RecordService {
 
             String result = HttpClient.doGet(getAddressByIpRequestUrl);
 
-            record.setAddress(result.substring(15,result.length()));
+            record.setAddress(result.substring(result.indexOf(":")+1,result.length()-1));
 
             Record saveRecord =  recordRepository.save(record);
 
@@ -60,7 +64,18 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public List<Record> getAll() {
-        return recordRepository.findAll();
+        List<Record> recordList = recordRepository.findAll();
+
+        Collections.sort(recordList,new Comparator<Record>() {
+
+            @Override
+            public int compare(Record r1, Record r2) {
+                // TODO Auto-generated method stub
+                return r2.getTotalNumberOfVisits().intValue() - r1.getTotalNumberOfVisits().intValue();
+            }
+        });
+
+        return recordList;
     }
 
     @Override

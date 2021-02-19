@@ -47,7 +47,7 @@ public class CommentServiceImpl implements CommentService {
                 "<br>用户名称:"+comment.getNickname()+
                 "<br>用户邮箱:"+comment.getEmail()+
                 "<br>评论内容:"+comment.getContent()+
-                "<br>评论时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+                "<br>评论时间:"+new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date());
 
         String result = PushWechatMessageUtil.pushMessageByPost(title,content);
         System.out.println("result = " + result);

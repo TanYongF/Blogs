@@ -11,8 +11,8 @@ spring:
 
 logging:
   level:
-    root: info
-    com.lrm: info
+    root: error
+    com.lrm: error
   file: log/blog.log
 
 
