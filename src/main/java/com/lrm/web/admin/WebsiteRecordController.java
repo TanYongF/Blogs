@@ -20,6 +20,16 @@ public class WebsiteRecordController {
         List<Record> recordList = recordService.getAll();
         model.addAttribute("recordList",recordList);
         model.addAttribute("recordListSize",recordList.size());
+        model.addAttribute("address","");
+        return "admin/websiteRecord";
+    }
+
+    @GetMapping("/admin/searchWebsiteRecordByAddress")
+    public String searchWebsiteRecordByAddress(Model model,String address){
+        List<Record> recordList = recordService.findByAddressLike("%"+address+"%");
+        model.addAttribute("recordList",recordList);
+        model.addAttribute("recordListSize",recordList.size());
+        model.addAttribute("address",address);
         return "admin/websiteRecord";
     }
 

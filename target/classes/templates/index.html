@@ -3,7 +3,7 @@
 <head th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>博客</title>
+  <title>DSX个人博客</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
   <link rel="stylesheet" href="../static/css/me.css" >
 </head>
@@ -65,14 +65,16 @@
                     <div class="eleven wide column">
                       <div class="ui mini horizontal link list">
                         <div class="item">
-                          <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image">
-                          <div class="content"><a th:href="@{/about}" target="_blank" class="header" th:text="${blog.user.nickname}" ></a></div>
+                          <a target="_blank" th:href="@{/about}"> <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image"> </a>
                         </div>
                         <div class="item">
-                          <h6 th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}"></h6>
+                          <div class="content"><h4><a th:href="@{/about}" target="_blank" class="header" th:text="${blog.user.nickname}" ></a></h4></div>
                         </div>
                         <div class="item">
-                          <h6 th:text="'浏览量:' + ${blog.views}"></h6>
+                          <h4 th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}"></h4>
+                        </div>
+                        <div class="item">
+                          <h4 th:text="${ '浏览:' + blog.views}"></h4>
                         </div>
                       </div>
                     </div>
@@ -115,10 +117,10 @@
             <div class="ui secondary segment">
               <div class="ui two column grid">
                 <div class="column">
-                  <h3>博客分类</h3>
+                  <h4>分类</h4>
                 </div>
                 <div class="right aligned column">
-                  <a href="#" th:href="@{types/-1}" target="_blank"><h4>更多<i class="angle double right icon"></i></h4></a>
+                  <a href="#" th:href="@{types/-1}" target="_blank"><h5>更多<i class="angle double right icon"></i></h5></a>
                 </div>
               </div>
             </div>
@@ -138,10 +140,10 @@
             <div class="ui secondary segment">
               <div class="ui two column grid">
                 <div class="column">
-                  <h3>博客标签</h3>
+                  <h4>标签</h4>
                 </div>
                 <div class="right aligned column">
-                  <a href="#" th:href="@{tags/-1}" target="_blank"><h4>更多<i class="angle double right icon"></i></h4></a>
+                  <a href="#" th:href="@{tags/-1}" target="_blank"><h5>更多<i class="angle double right icon"></i></h5></a>
                 </div>
               </div>
             </div>
@@ -156,7 +158,7 @@
           <!--最新推荐-->
           <div class="ui segments m-margin-top-large">
             <div class="ui secondary segment ">
-              <h3><i class="bookmark icon"></i>最新推荐</h3>
+              <h4>最新推荐</h4>
             </div>
             <div class="ui segment" th:each="blog : ${recommendBlogs}">
               <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事（User Story）</a>

@@ -3,7 +3,7 @@
 <head th:fragment="head(title)">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title th:replace="${title}">博客详情</title>
+  <title th:replace="${title}"></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
@@ -14,7 +14,7 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
     <div class="ui inverted secondary stackable menu">
-      <h2 class="ui teal header item">博客后台管理系统</h2>
+      <a href="http://www.shaoxiongdu.top" target="_blank"><h2 class="ui teal header item">后台管理系统</h2></a>
       <a href="#" th:href="@{/admin/blogs}" class=" m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class=" home icon"></i>博客管理</a>
       <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class=" list icon"></i>分类管理</a>
       <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class=" tags icon"></i>标签管理</a>
@@ -46,7 +46,9 @@
 <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
   <div class="ui center aligned container">
 
-    <h3 class="item">网站已运行:<span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </h3>
+    <!--访问量数据-->
+    <h4>访问量 : <span th:text="${session.views}"></span></h4>
+    <h4 class="item">博客勉强运行 : <span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </h4>
 
     <br><br><br>
 

@@ -14,5 +14,5 @@ public interface RecordRepository extends JpaRepository<Record,Long> {
 
     public Record findByIp(String ip);
 
-
+    List<Record> findByAddressLike(String address);
 }

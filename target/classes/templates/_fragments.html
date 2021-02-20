@@ -17,13 +17,14 @@
 <!--导航-->
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
-    <div class="ui inverted secondary stackable menu">
-      <a href="http://www.shaoxiongdu.top" ><h2 class="ui teal header item" th:text="${session.topTitle}">杜少雄的个人博客</h2></a>
-      <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客首页</a>
-      <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class=" list icon"></i>博客分类</a>
-      <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class=" tags icon"></i>博客标签</a>
-      <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class=" calendar icon"></i>博客归档</a>
-      <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class=" user icon"></i>关于作者</a>
+    <div class="ui inverted secondary stackable menu" style="font-size: 17px">
+      <a href="http://www.shaoxiongdu.top/admin" target="_blank" ><h2 class="ui teal header item" th:text="${session.topTitle}"></h2></a>
+      <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"></i>首页</a>
+      <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"></i>分类</a>
+      <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"></i>标签</a>
+      <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"></i>归档</a>
+      <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"></i>关于</a>
+      <a href="https://github.com/ShaoxiongDu" target="_blank"  class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'">Github</a>
       <div class="right m-item item m-mobile-hide">
         <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
           <div class="ui icon inverted transparent input m-margin-tb-tiny">
@@ -43,14 +44,16 @@
 <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
   <div class="ui center aligned container">
 
-    <h3>总访问量 : <span th:text="${session.views}"></span></h3>
+    <!--访问量数据-->
+    <p>访问量 : <span th:text="${session.views}"></span></p>
+    <p class="item">网站勉强运行 : <span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
     <br><br>
 
     <div class="ui inverted divided stackable grid">
 
       <!--微信二维码-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini" >此项目开源地址</h4>
+        <h4 class="ui inverted header me-opacity-mini" >开源地址</h4>
         <div class="ui inverted link list">
 
             <a class="item" href="#"><img th:src="@{/images/openSourceUrl.jpg}" title="扫码或者点击访问开源地址"  class="ui rounded image"  style="width: 100px"></a>

@@ -40,6 +40,20 @@
   <div  class=" m-padded-tb-big">
     <div class="ui container">
 
+      <form th:action="@{/admin/searchWebsiteRecordByAddress}">
+      <div  class="ui secondary segment form">
+        <div  class="inline fields">
+          <div class="field">
+            <input class="right aligned" type="text" name="address" placeholder="地区" th:value="${address}">
+          </div>
+          <div class="field">
+            <button  type="submit"  class="ui right aligned mini teal basic button"><i class="search icon"></i>搜索</button>
+          </div>
+        </div>
+
+      </div>
+      </form>
+
       <div class="ui top attached segment">
         <div class="ui middle aligned two column grid">
           <div class="column">

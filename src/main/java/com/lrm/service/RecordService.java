@@ -21,4 +21,6 @@ public interface RecordService {
 
     public Record findByIp(String ip);
 
+    public List<Record> findByAddressLike(String address);
+
 }

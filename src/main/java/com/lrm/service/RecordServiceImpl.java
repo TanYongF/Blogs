@@ -25,12 +25,18 @@ public class RecordServiceImpl implements RecordService {
     private RecordRepository recordRepository;
 
     @Override
+    public List<Record> findByAddressLike(String address) {
+        return recordRepository.findByAddressLike(address);
+    }
+
+    @Override
     public void recording(HttpServletRequest httpServletRequest) {
 
         /*网站访问记录*/
         String ip = IPUtils.getIpAddr(httpServletRequest);
 
         Record record = recordRepository.findByIp(ip);
+
         if(null == record){
             record = new Record();
             record.setIp(ip);
