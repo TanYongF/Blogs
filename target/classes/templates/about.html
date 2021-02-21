@@ -41,37 +41,34 @@
       <div class="ui stackable grid">
         <div class="eleven wide column">
           <div class="ui segment">
-            <img th:src="${session.aboutMeImageUrl}" alt="" class="ui rounded image">
+            <img th:src="@{/images/aboutMeCodeKey.jpg}" align="center" alt="欢迎扫码关注" title="欢迎扫码关注" class="ui rounded image">
           </div>
         </div>
         <div class="five wide column">
           <div class="ui top attached segment">
             <div class="center aligned ui header">关于作者</div>
             <div class="attached segment center aligned ui me-text">
-              <div>
-
-              </div>
               <p th:utext="${session.aboutMeContent}">
                   我是替换内容
               </p>
 
             </div>
+            <div class="attached segment ui aligned">
+
+              <h3 align="center">微信公众号 [CodeKey]</h3>
+              <p align="center">人间值得,我想和你一起前行!</p>
+
             <!--个人标签-->
             <div class="attached segment ui aligned">
-              <div class="me-margin-td-tiny ui label left pointing teal basic">编程</div>
-              <div class="me-margin-td-tiny ui label left pointing teal basic">游戏</div>
-              <div class="me-margin-td-tiny ui label left pointing teal basic">基金投资</div>
-            </div>
-            <!--技术标签-->
-            <div class="attached segment ui aligned ">
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">JavaWeb</div>
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">前端</div>
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">MySQL</div>
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">C/C++</div>
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">计算机网络</div>
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">敏捷开发</div>
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">jetbrains</div>
-              <div class="m-padded-tb-small m-padded-tb m-margin-top-small ui label left pointing orange basic">...</div>
+              <div class="me-margin-td-small m-padded-tb m-margin-top-small ui label left pointing teal basic">欢迎扫码关注</div>
+              <div class="me-margin-td-small m-padded-tb m-margin-top-small ui label left pointing teal basic">分享编程干货</div>
+
+              <div class="me-margin-td-small m-padded-tb m-margin-top-small ui label left pointing teal basic">数据结构&算法</div>
+              <div class="me-margin-td-small m-padded-tb m-margin-top-small ui label left pointing teal basic">网络人生</div>
+
+              <div class="me-margin-td-small m-padded-tb m-margin-top-small ui label left pointing teal basic">LeetCode每日一题</div>
+              <div class="me-margin-td-small m-padded-tb m-margin-top-small ui label left pointing teal basic">数据库</div>
+
             </div>
 
             <!--联系-->
