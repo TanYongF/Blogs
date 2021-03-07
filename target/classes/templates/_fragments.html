@@ -2,8 +2,11 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:fragment="head(title)">
   <meta charset="UTF-8">
+  <!--百度搜索站长管理-->
+  <meta name="baidu-site-verification" content="code-YHtfJm5u87" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title th:replace="${title}"></title>
+
   <link rel="icon" type="image/x-icon" th:href="@{images/favicon.ico}" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
@@ -55,10 +58,12 @@
 
       <!--微信二维码-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini" >微信公众号</h4>
+        <h4 class="ui inverted header me-opacity-mini" >公众号【CodeKey】</h4>
         <div class="ui inverted link list">
 
-            <a class="item" href="#"><img th:src="@{/images/CodeKey.jpg}" title="欢迎扫码关注!"  class="ui rounded image"  style="width: 100px"></a>
+            <div class="item">
+              <img  th:src="@{/images/CodeKeyQR.jpg}"  title="欢迎扫码关注!"  class="ui rounded image"  style="width: 100px">
+            </div>
 
         </div>
       </div>
@@ -79,7 +84,6 @@
         <div class="ui inverted list link">
           <p class="item">邮箱: ShaoxiongDu@126.com</p>
           <p class="item">QQ: 740593369</p>
-          <p class="item">手机号: 15603430511</p>
           <a target="_blank" href="https://github.com/ShaoxiongDu" class="item">Github: ShaoxiongDu</a>
         </div>
       </div>
@@ -160,6 +164,34 @@
     setInterval(setTime, 1000);
 
   </script>
+
+  <!--自动推送百度搜索服务器-->
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+  <!--百度PV/UV统计-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ec67fe367b756f47737b99d404889527";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 </th:block>
 
 </body>

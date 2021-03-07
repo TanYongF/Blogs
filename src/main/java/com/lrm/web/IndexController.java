@@ -64,7 +64,6 @@ public class IndexController {
         return "index";
     }
 
-
     @PostMapping("/search")
     public String search(@PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query, Model model) {
@@ -81,7 +80,7 @@ public class IndexController {
 
     @GetMapping("/footer/newblog")
     public String newblogs(Model model) {
-        model.addAttribute("newblogs", blogService.listRecommendBlogTop(7));
+        model.addAttribute("newblogs", blogService.listRecommendBlogTop(4));
         return "_fragments :: newblogList";
     }
 
