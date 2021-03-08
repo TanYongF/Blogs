@@ -65,12 +65,6 @@
                     <div class="eleven wide column">
                       <div class="ui mini horizontal link list">
                         <div class="item">
-                          <a target="_blank" th:href="@{/about}"> <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image"> </a>
-                        </div>
-                        <div class="item">
-                          <div class="content"><h4><a th:href="@{/about}" target="_blank" class="header" th:text="${blog.user.nickname}" ></a></h4></div>
-                        </div>
-                        <div class="item">
                           <h4 th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}"></h4>
                         </div>
                         <div class="item">
