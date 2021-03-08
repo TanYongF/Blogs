@@ -4,14 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc0c4d23-0218-4692-b35a-a928f60eaef9" name="Default" comment="修复细节">
+    <list default="true" id="bc0c4d23-0218-4692-b35a-a928f60eaef9" name="Default" comment="优化体验">
+      <change afterPath="$PROJECT_DIR$/log/blog.log.2021-03-07.0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-03-05T122142.400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2021-03-05T122217.400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/blog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/blog.log.2021-02-20.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/blog.log.2021-03-05.0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lrm/service/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lrm/service/CommentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lrm/web/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lrm/web/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lrm/web/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lrm/web/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/CodeKey.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/CodeKey.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/CodeKeyQR.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/blog-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/blog-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/blog-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/blog-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lrm/service/CommentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lrm/service/CommentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lrm/util/MD5Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lrm/util/MD5Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lrm/web/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lrm/web/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lrm/web/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lrm/web/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/CodeKey.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/images/CodeKey.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/CodeKeyQR.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/_fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.lrm.BlogApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.lrm.BlogApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.lrm.BlogApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.lrm.BlogApplicationTests.txt" afterDir="false" />
     </list>
@@ -326,7 +350,7 @@
     <property name="project.structure.side.proportion" value="0.49947312" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="leetcode.id" />
+    <property name="settings.editor.selected.configurable" value="com.alibabacloud.intellij.config.AccountConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -353,78 +377,6 @@
     <option name="REQUEST_HISTORY">
       <list>
         <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://data.zz.baidu.com/urls" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="User-Agent" />
-                <option name="value" value="curl/7.12.1" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Host" />
-                <option name="value" value="data.zz.baidu.com" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="text/plain" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="site" />
-                <option name="value" value="blog.shaoxiongdu.top" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="token" />
-                <option name="value" value="UAq91N2HVjLXjSHU" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://data.zz.baidu.com/urls" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="User-Agent" />
-                <option name="value" value="curl/7.12.1" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Host" />
-                <option name="value" value="data.zz.baidu.com" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="text/plain" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parameters">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="site" />
-                <option name="value" value="blog.shaoxiongdu.top" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="token" />
-                <option name="value" value="UAq91N2HVjLXjSHUHTTP/1.1" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:80/admin/websiteRecord" />
           <option name="urlPath" value="" />
@@ -442,7 +394,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BlogApplication">
+  <component name="RunManager" selected="Deploy to Host.Deploy to Host">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -592,7 +544,7 @@
       <option name="accountModel" />
       <option name="accountModels" />
       <option name="address" />
-      <option name="afterCommand" value="nohup java -jar shaoxiongdu.jar &amp;" />
+      <option name="afterCommand" value="" />
       <option name="alreadyReset" value="true" />
       <option name="autoOpen" value="false" />
       <option name="beforeCommand" value="" />
@@ -617,7 +569,7 @@
       </option>
       <option name="hostTagId" value="0" />
       <option name="location" value="/shaoxiongdu_blog/" />
-      <option name="pathOrUrl" value="C:\Users\ShaoxiongDu\OneDrive\Development\blog\target\blog-0.0.1-SNAPSHOT.jar" />
+      <option name="pathOrUrl" value="C:\Users\ShaoxiongDu\OneDrive\Development\Java\blog\target\blog-0.0.1-SNAPSHOT.jar" />
       <option name="tagId" value="0" />
       <option name="terminalCommand" />
       <option name="type" value="HOST" />
@@ -635,9 +587,6 @@
       <method v="2" />
     </configuration>
     <configuration name="rest-api_4#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_4.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="rest-api_6#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_6.http" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="BlogApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -739,13 +688,11 @@
       <item itemvalue="Application.MD5Utils" />
       <item itemvalue="Deploy to Host.Deploy to Host" />
       <item itemvalue="HTTP Request.rest-api_4#1" />
-      <item itemvalue="HTTP Request.rest-api_6#1" />
       <item itemvalue="JUnit.BlogApplicationTests.contextLoads" />
       <item itemvalue="Spring Boot.BlogApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api_6#1" />
         <item itemvalue="HTTP Request.rest-api_4#1" />
         <item itemvalue="Application.MD5Utils" />
         <item itemvalue="JUnit.BlogApplicationTests.contextLoads" />
@@ -877,14 +824,7 @@
       <workItem from="1613909961167" duration="812000" />
       <workItem from="1613913342595" duration="477000" />
       <workItem from="1614172777562" duration="32000" />
-      <workItem from="1614917163413" duration="1291000" />
-      <workItem from="1614922551582" duration="971000" />
-      <workItem from="1614923603118" duration="36000" />
-      <workItem from="1614933516010" duration="758000" />
-      <workItem from="1615090567013" duration="685000" />
-      <workItem from="1615091278859" duration="1475000" />
-      <workItem from="1615094694972" duration="252000" />
-      <workItem from="1615095214497" duration="692000" />
+      <workItem from="1614917163413" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="项目部署完成">
       <created>1611319493545</created>
@@ -1012,21 +952,7 @@
       <option name="project" value="LOCAL" />
       <updated>1613909789113</updated>
     </task>
-    <task id="LOCAL-00019" summary="修复个人信息泄露问题">
-      <created>1614917657820</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1614917657820</updated>
-    </task>
-    <task id="LOCAL-00020" summary="修复细节">
-      <created>1615094865277</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1615094865278</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1182,9 +1108,7 @@
     <MESSAGE value="新增网站记录功能按照地区搜索 优化主页显示内容" />
     <MESSAGE value="新增公众号引流功能 优化显示 提升用户体验" />
     <MESSAGE value="美化公众号引流照片" />
-    <MESSAGE value="修复个人信息泄露问题" />
-    <MESSAGE value="修复细节" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复细节" />
+    <option name="LAST_COMMIT_MESSAGE" value="美化公众号引流照片" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

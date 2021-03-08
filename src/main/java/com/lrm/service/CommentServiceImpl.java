@@ -50,6 +50,7 @@ public class CommentServiceImpl implements CommentService {
                 "<br>评论时间:"+new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date());
 
         String result = PushWechatMessageUtil.pushMessageByPost(title,content);
+        System.out.println("result = " + result);
 
         Long parentCommentId = comment.getParentComment().getId();
         if (parentCommentId != -1) {
@@ -58,7 +59,6 @@ public class CommentServiceImpl implements CommentService {
             comment.setParentComment(null);
         }
         comment.setCreateTime(new Date());
-        comment.setAvatar("https://picsum.photos/200");
         return commentRepository.save(comment);
     }
 

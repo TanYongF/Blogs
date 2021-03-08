@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.lrm.BlogApplicationTests" time="0.034" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="com.lrm.BlogApplicationTests" time="0.041" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2020.3.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -30,7 +30,7 @@
     <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.1\plugins\maven\lib\maven-event-listener.jar"/>
     <property name="classworlds.conf" value="C:\apache-maven-3.6.3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="GBK"/>
-    <property name="java.library.path" value="C:\JavaJDK\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\NetSarang\Xftp 6\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Pandoc\;C:\Program Files\dotnet\;C:\Users\ShaoxiongDu\AppData\Local\Programs\Python\Python38;C:\apache-maven-3.6.3\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\快捷方式;C:\JavaJDK\bin;%PATHON_HOME%\Scripts;C:\Program Files\MySQL\MySQL Server 8.0\bin;;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\ShaoxiongDu\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.1\bin;;C:\Program Files\JetBrains\DataGrip 2020.2.3\bin;;;C:\Program Files\JetBrains\WebStorm 2020.3.1\bin;;C:\Program Files\JetBrains\PyCharm 2020.3.3\bin;;."/>
+    <property name="java.library.path" value="C:\JavaJDK\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\NetSarang\Xftp 6\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Pandoc\;C:\Program Files\dotnet\;C:\Users\ShaoxiongDu\AppData\Local\Programs\Python\Python38;C:\apache-maven-3.6.3\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\快捷方式;C:\JavaJDK\bin;%PATHON_HOME%\Scripts;C:\Program Files\MySQL\MySQL Server 8.0\bin;;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Users\ShaoxiongDu\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.1\bin;;C:\Program Files\JetBrains\DataGrip 2020.2.3\bin;;;C:\Program Files\JetBrains\WebStorm 2020.3.1\bin;;C:\Program Files\JetBrains\PyCharm 2020.3.3\bin;;C:\Users\ShaoxiongDu\AppData\Roaming\npm;."/>
     <property name="maven.conf" value="C:\apache-maven-3.6.3/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
@@ -64,5 +64,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="contextLoads" classname="com.lrm.BlogApplicationTests" time="0.034"/>
+  <testcase name="contextLoads" classname="com.lrm.BlogApplicationTests" time="0.041"/>
 </testsuite>

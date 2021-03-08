@@ -27,7 +27,7 @@ public class CommentController {
     private BlogService blogService;
 
     @Value("${comment.avatar}")
-    private String avatar = "https://picsum.photos/200";
+    private String avatar;
 
     @GetMapping("/comments/{blogId}")
     public String comments(@PathVariable Long blogId, Model model) {
