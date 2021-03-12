@@ -29,4 +29,4 @@
 ## 三.赞赏
 #### 如果觉得这个项目有趣,欢迎请作者喝一杯茶!
 
-  ![wechatPay](https://github.com/ShaoxiongDu/ShaoxiongDu_Blog/blob/master/src/main/resources/static/images/wechatPay.jpg)
+<img src="https://github.com/ShaoxiongDu/ShaoxiongDu/blob/main/wechatPay.jpg" />
