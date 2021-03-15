@@ -78,11 +78,11 @@ public class LoginController {
 
     /**
      * 用户注册
-     * @param userTORegister        封装的用户注册信息
+     * @param userTOregister        封装的用户注册信息
      * @return                      返回结果
      * TODO:完善登录接口
      */
-    public String register(@RequestParam UserRegister userTORegister){
+    public String register(@RequestParam UserRegister userT0register){
         return null;
     }
 

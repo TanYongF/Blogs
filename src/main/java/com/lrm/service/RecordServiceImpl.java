@@ -32,7 +32,7 @@ public class RecordServiceImpl implements RecordService {
     @Override
     public void recording(HttpServletRequest httpServletRequest) {
 
-        /*网站访问记录*/
+        //获取用户 IP 地址
         String ip = IPUtils.getIpAddr(httpServletRequest);
 
         Record record = recordRepository.findByIp(ip);
@@ -50,16 +50,15 @@ public class RecordServiceImpl implements RecordService {
 
             Record saveRecord =  recordRepository.save(record);
 
-            /*推送微信消息*/
-            String title = "新的IP地址访问通知";
-            String content =
-                    "访问记录ID:" + saveRecord.getId()+
-                    "<br>访问IP地址:"+record.getIp()+
-                    "<br>访问地区:"+record.getAddress()+
-                    "<br>访问时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-            PushWechatMessageUtil.pushMessageByPost(title,content);
-
-            return;
+//            /*推送微信消息*/
+//            String title = "新的IP地址访问通知";
+//            String content =
+//                    "访问记录ID:" + saveRecord.getId()+
+//                    "<br>访问IP地址:"+record.getIp()+
+//                    "<br>访问地区:"+record.getAddress()+
+//                    "<br>访问时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+//            PushWechatMessageUtil.pushMessageByPost(title,content);
+//
         }else {
             record.setLastVisitTime(new Date());
             record.setTotalNumberOfVisits(record.getTotalNumberOfVisits()+1);
@@ -80,7 +79,6 @@ public class RecordServiceImpl implements RecordService {
                 return r2.getTotalNumberOfVisits().intValue() - r1.getTotalNumberOfVisits().intValue();
             }
         });
-
         return recordList;
     }
 

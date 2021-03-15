@@ -17,5 +17,12 @@
       <jdbc-url>jdbc:mysql://shaoxiongdu.mysql.rds.aliyuncs.com:3306/blog?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Blog" uuid="9a944203-7593-4e34-a3cf-0ae98d40c0ac">
+      <driver-ref>mongo</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb://49.234.79.216:27017</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

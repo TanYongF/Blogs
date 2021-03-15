@@ -2,7 +2,9 @@ package com.lrm.service;
 
 import com.lrm.NotFoundException;
 import com.lrm.dao.BlogRepository;
+import com.lrm.dao.ContentRepository;
 import com.lrm.po.Blog;
+import com.lrm.po.Content;
 import com.lrm.po.Type;
 import com.lrm.util.MarkdownUtils;
 import com.lrm.util.MyBeanUtils;
@@ -33,11 +35,26 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private CommentService commentService;
 
+    @Autowired
+    private ContentRepository contentRepository;
+
+    /**
+     * 根据id获取博客
+     * @param id    Blog ID
+     * @return      Blog
+     */
     @Override
     public Blog getBlog(Long id) {
+        Blog one = blogRepository.findOne(id);
+        one.setContent(contentRepository.findOne(one.getContentId()).getContent());
         return blogRepository.findOne(id);
     }
 
+    /**
+     * 转换Markdown格式笔记为 Html 格式便于显示
+     * @param id        blogID
+     * @return          Blog对象
+     */
     @Transactional
     @Override
     public Blog getAndConvert(Long id) {
@@ -47,9 +64,10 @@ public class BlogServiceImpl implements BlogService {
         }
         Blog b = new Blog();
         BeanUtils.copyProperties(blog,b);
-        String content = b.getContent();
-        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        Content content = contentRepository.findOne(b.getContentId());
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content.getContent()));
 
+        //访问量 + 1
         blogRepository.updateViews(id);
         return b;
     }
@@ -81,6 +99,12 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.findAll(pageable);
     }
 
+    /**
+     * 通过tagId进行遍历
+     * @param tagId
+     * @param pageable
+     * @return
+     */
     @Override
     public Page<Blog> listBlog(Long tagId, Pageable pageable) {
         return blogRepository.findAll(new Specification<Blog>() {
@@ -92,22 +116,29 @@ public class BlogServiceImpl implements BlogService {
         },pageable);
     }
 
-    @Override
-    public Page<Blog> listBlog(String query, Pageable pageable) {
-        return blogRepository.findByQuery(query,pageable);
-    }
+    /**
+     * FIXME:通过查找关键字来实现查找响应博客
+     * @param query
+     * @param pageable
+     * @return  Page
+     */
+//    @Override
+//    public Page<Blog> listBlog(String query, Pageable pageable) {
+//        return blogRepository.findByQuery(query,pageable);
+//    }
 
     @Override
     public List<Blog> listRecommendBlogTop(Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC,"updateTime");
         Pageable pageable = new PageRequest(0, size, sort);
+        List<Blog> blogs = blogRepository.findTop(pageable);
         return blogRepository.findTop(pageable);
     }
 
     @Override
     public Map<String, List<Blog>> archiveBlog() {
         List<String> years = blogRepository.findGroupYear();
-        Map<String, List<Blog>> map = new HashMap<>();
+        Map<String, List<Blog>> map = new HashMap<String, List<Blog>>();
         for (String year : years) {
             List<Blog> byYear = blogRepository.findByYear(year);
             Collections.reverse(byYear);
@@ -116,6 +147,10 @@ public class BlogServiceImpl implements BlogService {
         return map;
     }
 
+    /**
+     * 计算Blog的总个数
+     * @return         Blog个数
+     */
     @Override
     public Long countBlog() {
         return blogRepository.count();
@@ -125,6 +160,7 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
+        Content content = new Content();
         if (blog.getId() == null) {
             blog.setCreateTime(new Date());
             blog.setUpdateTime(new Date());
@@ -132,25 +168,40 @@ public class BlogServiceImpl implements BlogService {
         } else {
             blog.setUpdateTime(new Date());
         }
+        //保存到MongoDB
+        content.setContent(blog.getContent());
+        Content save = contentRepository.save(content);
+        blog.setContentId(save.getId());
         return blogRepository.save(blog);
     }
 
     @Transactional
     @Override
     public Blog updateBlog(Long id, Blog blog) {
+        Content content = new Content();
         Blog b = blogRepository.findOne(id);
         if (b == null) {
             throw new NotFoundException("该博客不存在");
         }
         BeanUtils.copyProperties(blog,b, MyBeanUtils.getNullPropertyNames(blog));
         b.setUpdateTime(new Date());
+        //保存到MongoDB
+        content.setId(b.getContentId());
+        content.setContent(b.getContent());
+        contentRepository.save(content);
         return blogRepository.save(b);
     }
 
     @Transactional
     @Override
     public void deleteBlog(Long id) {
+        Blog blog = blogRepository.findOne(id);
+        //删除content
+        contentRepository.delete(blog.getContentId());
+        //删除comment
         commentService.deleteCommentByBlogId(id);
+        //删除blog
         blogRepository.delete(id);
+
     }
 }

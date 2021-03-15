@@ -1,8 +1,10 @@
 package com.lrm.po;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "t_blog")
 @Data
+@ToString
 public class Blog {
 
     @Id
@@ -21,9 +24,17 @@ public class Blog {
 
     private String title;
 
-    @Basic(fetch = FetchType.LAZY)
-    @Lob
+//    @Basic(fetch = FetchType.LAZY)
+//    @Lob
+    @Transient
     private String content;
+
+    /**
+     * 用来寻找MongoDB中的内容
+     */
+    @NotNull
+    @Column(unique = true)
+    private String contentId;
 
     private String firstPicture;
     private String flag;
@@ -61,7 +72,6 @@ public class Blog {
         this.tagIds = tagsToIds(this.getTags());
     }
 
-    //1,2,3
     private String tagsToIds(List<Tag> tags) {
         if (!tags.isEmpty()) {
             StringBuffer ids = new StringBuffer();
@@ -81,28 +91,4 @@ public class Blog {
     }
 
 
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", flag='" + flag + '\'' +
-                ", views=" + views +
-                ", appreciation=" + appreciation +
-                ", shareStatement=" + shareStatement +
-                ", commentabled=" + commentabled +
-                ", published=" + published +
-                ", recommend=" + recommend +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", type=" + type +
-                ", tags=" + tags +
-                ", user=" + user +
-                ", comments=" + comments +
-                ", tagIds='" + tagIds + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }

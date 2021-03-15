@@ -28,5 +28,18 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="Blog" uuid="9a944203-7593-4e34-a3cf-0ae98d40c0ac">
+      <database-info product="Mongo DB" version="4.0.10" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.8.3" dbms="MONGO" exact-version="4.0.10" exact-driver-version="1.8" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="blog" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
   </component>
 </project>

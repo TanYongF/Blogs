@@ -35,12 +35,23 @@ public class TypeController {
         return "admin/types";
     }
 
+    /**
+     * 用户新增之前的接口
+     * @param model
+     * @return
+     */
     @GetMapping("/types/input")
     public String input(Model model) {
         model.addAttribute("type", new Type());
         return "admin/types-input";
     }
 
+    /**
+     * 用户修改之前的接口
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/types/{id}/input")
     public String editInput(@PathVariable Long id, Model model) {
         model.addAttribute("type", typeService.getType(id));
@@ -67,6 +78,14 @@ public class TypeController {
     }
 
 
+    /**
+     * 用户更新type接口
+     * @param type          type对象
+     * @param result        结果
+     * @param id            type的id
+     * @param attributes    转发属性
+     * @return
+     */
     @PostMapping("/types/{id}")
     public String editPost(@Valid Type type, BindingResult result,@PathVariable Long id, RedirectAttributes attributes) {
         Type type1 = typeService.getTypeByName(type.getName());

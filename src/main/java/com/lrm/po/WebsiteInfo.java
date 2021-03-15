@@ -4,7 +4,12 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-/*网站信息*/
+/**
+ * @Author tyf
+ * @Description //TODO
+ * @Date 12:58 2021/3/15
+ **/
+
 @Entity
 @Table(name = "t_website_info")
 @Data

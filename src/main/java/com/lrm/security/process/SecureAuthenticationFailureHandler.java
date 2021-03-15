@@ -24,3 +24,5 @@ public class SecureAuthenticationFailureHandler implements AuthenticationFailure
         httpServletResponse.sendRedirect("/admin/error");
     }
 }
+
+

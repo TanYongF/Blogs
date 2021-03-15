@@ -48,6 +48,7 @@
   <!--中间内容-->
   <div  class="m-container-small m-padded-tb-big">
     <div class="ui container">
+      <!--接到一个object 判断其 type.id 是否为0, 如果为0 则直接新增, 如果不为0, 那么就是更改-->
       <form action="#" method="post"  th:object="${type}" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})} "  class="ui form">
         <input type="hidden" name="id" th:value="*{id}">
         <div class=" field">

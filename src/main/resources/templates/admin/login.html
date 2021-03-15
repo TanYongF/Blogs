@@ -3,7 +3,7 @@
 <head th:replace="admin/_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DSX博客后台管理</title>
+  <title>TBlogs博客后台管理</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/css/me.css">
 </head>
@@ -18,7 +18,7 @@
        <div class="column">
          <h2 class="ui teal image header">
            <div class="content">
-             DSX个人博客后台管理系统
+             TBlogs个人博客后台管理系统
            </div>
          </h2>
          <form class="ui large form" method="post" action="#" th:action="@{/login}">
@@ -43,7 +43,7 @@
 
          </form>
 
-         <a href="http://www.shaoxiongdu.top" class="href"><h3>返回首页</h3></a>
+         <a href="http://www.shaoxiongdu.top" th:href="@{/}" class="href"><h3>返回首页</h3></a>
 
        </div>
      </div>

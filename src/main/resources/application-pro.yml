@@ -1,17 +1,17 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://49.234.79.216:3306/blogs?useSSL=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/blogs?useSSL=false&useUnicode=true&characterEncoding=utf8
     username: blogs
     password: 12345678
   data:
     mongodb:
-      host: 49.234.79.216
+      host: 127.0.0.1
       port: 27017
       database: blog
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: false
 
 logging:
@@ -19,6 +19,5 @@ logging:
     root: info
     com.lrm: info
   file: log/blog.log
-
 
 

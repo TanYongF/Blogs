@@ -14,7 +14,8 @@ public class HttpClient {
         HttpURLConnection connection = null;
         InputStream is = null;
         BufferedReader br = null;
-        String result = null;// 返回结果字符串
+        //返回结果字符串
+        String result = null;
         try {
             // 创建远程url连接对象
             URL url = new URL(httpurl);

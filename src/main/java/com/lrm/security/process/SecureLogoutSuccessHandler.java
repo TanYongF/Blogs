@@ -24,9 +24,11 @@ public class SecureLogoutSuccessHandler implements LogoutHandler {
 
     private boolean clearAuthentication = true;
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
-        Logger logger = LoggerFactory.getLogger(getClass());
         //销毁Session
         if (invalidateHttpSession){
             HttpSession session = request.getSession(false);

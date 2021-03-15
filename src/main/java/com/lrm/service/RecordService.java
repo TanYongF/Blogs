@@ -7,15 +7,16 @@ import java.util.List;
 
 public interface RecordService {
 
+
     /**
      * 保存一条访问记录
-     * @param
+     * @param httpServletRequest
      */
     public void recording(HttpServletRequest httpServletRequest);
 
     /**
      * 获取所有记录
-     * @return
+     * @return  记录的lis集合
      */
     public List<Record> getAll();
 
