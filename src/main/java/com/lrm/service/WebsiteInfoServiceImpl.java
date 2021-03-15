@@ -16,13 +16,12 @@ public class WebsiteInfoServiceImpl implements WebsiteInfoService {
         /*获取当前浏览量*/
         WebsiteInfo views = websiteInfoRepository.findByValueName("views");
 
-        /*递增*/
+        /*访问次数递增*/
         Long view = Long.parseLong(views.getValue());
         view++;
         views.setValue(view.toString());
         websiteInfoRepository.save(views);
 
-        /*返回*/
         return view;
     }
 

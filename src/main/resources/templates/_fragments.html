@@ -28,8 +28,8 @@
       <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"></i>标签</a>
       <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"></i>归档</a>
       <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"></i>关于我</a>
-      <a href="https://github.com/ShaoxiongDu"  target="_blank"  class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'">Github</a>
-      <a href="https://github.com/ShaoxiongDu/Shaoxiongdu_Blog"  target="_blank"  class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'">项目开源</a>
+<!--      <a href="https://github.com/ShaoxiongDu"  target="_blank"  class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'">Github</a>-->
+<!--      <a href="https://github.com/ShaoxiongDu/Shaoxiongdu_Blog"  target="_blank"  class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'">项目开源</a>-->
       <div class="right m-item item m-mobile-hide">
         <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
           <div class="ui icon inverted transparent input m-margin-tb-tiny">
@@ -55,58 +55,58 @@
     <p class="item">勉强运行 : <span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
     <br><br>
 
-    <div class="ui inverted divided stackable grid">
+<!--    <div class="ui inverted divided stackable grid">-->
 
-      <!--微信二维码-->
-      <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini" >微信公众号</h4>
-        <div class="ui inverted link list">
+<!--      &lt;!&ndash;微信二维码&ndash;&gt;-->
+<!--      <div class="four wide column">-->
+<!--        <h4 class="ui inverted header me-opacity-mini" >微信公众号</h4>-->
+<!--        <div class="ui inverted link list">-->
 
-            <a class="item" href="#"><img th:src="@{/images/CodeKey.jpg}" title="欢迎扫码关注!"  class="ui rounded image"  style="width: 100px"></a>
+<!--            <a class="item" href="#"><img th:src="@{/images/CodeKey.jpg}" title="欢迎扫码关注!"  class="ui rounded image"  style="width: 100px"></a>-->
 
-        </div>
-      </div>
+<!--        </div>-->
+<!--      </div>-->
 
-      <!--推荐博客-->
-      <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini" >最新推荐</h4>
-        <div id="newblog-container">
-          <div class="ui inverted link list" th:fragment="newblogList">
-            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>
-          </div>
-        </div>
-      </div>
+<!--      &lt;!&ndash;推荐博客&ndash;&gt;-->
+<!--      <div class="four wide column">-->
+<!--        <h4 class="ui inverted header me-opacity-mini" >最新推荐</h4>-->
+<!--        <div id="newblog-container">-->
+<!--          <div class="ui inverted link list" th:fragment="newblogList">-->
+<!--            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <!--联系作者-->
-      <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini">联系作者</h4>
-        <div class="ui inverted list link">
-          <p class="item">QQ: 740593369</p>
-          <p class="item">Github: ShaoxiongDu</p>
-          <p class="item">邮箱: Shaoxiong.dev@aliyun.com</p>
-          <p class="item">地址: 山西省太原市太原科技大学南校区</p>
+<!--      &lt;!&ndash;联系作者&ndash;&gt;-->
+<!--      <div class="four wide column">-->
+<!--        <h4 class="ui inverted header me-opacity-mini">联系作者</h4>-->
+<!--        <div class="ui inverted list link">-->
+<!--          <p class="item">QQ: 740593369</p>-->
+<!--          <p class="item">Github: ShaoxiongDu</p>-->
+<!--          <p class="item">邮箱: Shaoxiong.dev@aliyun.com</p>-->
+<!--          <p class="item">地址: 山西省太原市太原科技大学南校区</p>-->
 
-        </div>
-      </div>
-      <!--个人说明-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash;个人说明&ndash;&gt;-->
 
-      <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini">Blog</h4>
-        <div class="ui inverted list link">
-          <p class="item">每个人都有属于自己的一片森林</p>
-          <p class="item">也许我们 从来不曾去过，</p>
-          <p class="item">但它一直在那里，总会在那里。</p>
-        </div>
-      </div>
-    </div>
+<!--      <div class="four wide column">-->
+<!--        <h4 class="ui inverted header me-opacity-mini">Blog</h4>-->
+<!--        <div class="ui inverted list link">-->
+<!--          <p class="item">每个人都有属于自己的一片森林</p>-->
+<!--          <p class="item">也许我们 从来不曾去过，</p>-->
+<!--          <p class="item">但它一直在那里，总会在那里。</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="ui inverted section divider"></div>
 
 
     <!--ICP备案号-->
-    <div class="ui inverted list link">
-      <p style="color: #AAAAAA" >版权所有© 2020-2021 杜少雄 保留所有权利 <a style="color:#AAAAAA;" target="_blank" href='https://beian.miit.gov.cn/'>晋ICP备2020012997号-1</a> </p>
+<!--    <div class="ui inverted list link">-->
+<!--      <p style="color: #AAAAAA" >版权所有© 2020-2021 杜少雄 保留所有权利 <a style="color:#AAAAAA;" target="_blank" href='https://beian.miit.gov.cn/'>晋ICP备2020012997号-1</a> </p>-->
 
-    </div>
+<!--    </div>-->
   </div>
 
 </footer>
@@ -154,7 +154,7 @@
     /*网站建站日期*/
     function setTime() {
       /*此处为网站的创建时间*/
-      var create_time = Math.round(new Date(Date.UTC(2020, 12, 10, 15, 15, 15)).getTime() / 1000);
+      var create_time = Math.round(new Date(Date.UTC(2021, 2, 10, 15, 15, 15)).getTime() / 1000);
       var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
       currentTime = secondToDate((timestamp - create_time));
       currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'

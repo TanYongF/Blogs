@@ -1,5 +1,8 @@
 package com.lrm.po;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,6 +11,8 @@ import java.util.Date;
  */
 @Table(name = "t_record")
 @Entity
+@NoArgsConstructor
+@Data
 public class Record {
 
     @Id
@@ -21,6 +26,10 @@ public class Record {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastVisitTime;
 
+    /**
+     * 访问总次数
+     */
+    private Long totalNumberOfVisits;
 
     @Override
     public String toString() {
@@ -31,55 +40,5 @@ public class Record {
                 ", 访问时间=" + lastVisitTime +
                 ", 总访问次数=" + totalNumberOfVisits +
                 ']';
-    }
-
-    /**
-     * 访问总次数
-     */
-    private Long totalNumberOfVisits;
-
-    public Long getTotalNumberOfVisits() {
-        return totalNumberOfVisits;
-    }
-
-    public void setTotalNumberOfVisits(Long totalNumberOfVisits) {
-        this.totalNumberOfVisits = totalNumberOfVisits;
-    }
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Date getLastVisitTime() {
-        return lastVisitTime;
-    }
-
-    public void setLastVisitTime(Date dateTime) {
-        this.lastVisitTime = dateTime;
-    }
-
-    public Record() {
     }
 }

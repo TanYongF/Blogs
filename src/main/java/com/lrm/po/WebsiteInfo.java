@@ -1,10 +1,13 @@
 package com.lrm.po;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /*网站信息*/
 @Entity
 @Table(name = "t_website_info")
+@Data
 public class WebsiteInfo {
 
     /**
@@ -31,19 +34,4 @@ public class WebsiteInfo {
                 '}';
     }
 
-    public String getValueName() {
-        return valueName;
-    }
-
-    public void setValueName(String valueName) {
-        this.valueName = valueName;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

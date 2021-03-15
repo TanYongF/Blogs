@@ -8,4 +8,4 @@ spring:
 
 comment.avatar: /images/favicon.ico
 server:
-  port: 80
+  port: 9999

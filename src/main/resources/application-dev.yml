@@ -1,9 +1,9 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://ShaoxiongDu.mysql.rds.aliyuncs.com:3306/blog?useSSL=false&useUnicode=true&characterEncoding=utf8
-    username: root
-    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.234.79.216:3306/blogs?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: blogs
+    password: 12345678
   jpa:
     hibernate:
       ddl-auto: none
@@ -11,7 +11,7 @@ spring:
 
 logging:
   level:
-    root: error
+    root: info
     com.lrm: error
   file: log/blog.log
 
