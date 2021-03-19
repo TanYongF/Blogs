@@ -25,5 +25,5 @@ hs_err_pid*
 #IDEA
 .idea/
 log/
-resource/application-dev.yml
+application-dev.yml
 application-pro.yml
