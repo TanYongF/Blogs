@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blogs?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: blogs
+    password: 12345678
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: blog
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+logging:
+  level:
+    root: info
+    com.lrm: info
+  file: log/blog.log

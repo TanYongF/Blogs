@@ -52,7 +52,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
             "/footer/**",
             "/archives/**",
             "/about/**",
-            "/admin/error"
+            "/admin/error",
+            "/comments/**"
     };
 
     @Override

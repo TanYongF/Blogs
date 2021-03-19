@@ -78,7 +78,7 @@ public class LoginController {
 
     /**
      * 用户注册
-     * @param userTOregister        封装的用户注册信息
+     * @param userT0register        封装的用户注册信息
      * @return                      返回结果
      * TODO:完善登录接口
      */

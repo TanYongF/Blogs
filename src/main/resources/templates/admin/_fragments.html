@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head(title)">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
     <div class="ui inverted secondary stackable menu">
-      <a href="http://www.shaoxiongdu.top" target="_blank"><h2 class="ui teal header item">后台管理系统</h2></a>
+      <a href="http://127.0.0.1:9999/" target="_blank"><h2 class="ui teal header item">后台管理系统</h2></a>
       <a href="#" th:href="@{/admin/blogs}" class=" m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class=" home icon"></i>博客管理</a>
       <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class=" list icon"></i>分类管理</a>
       <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class=" tags icon"></i>标签管理</a>
@@ -24,7 +25,7 @@
         <div class="ui dropdown  item">
           <div class="text">
             <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.avatar}}">
-            <span th:text="${session.user.nickname}">杜少雄</span>
+            <span th:text="${session.user.nickname}">dsx</span>
           </div>
           <i class="dropdown icon"></i>
           <div class="menu">
@@ -42,10 +43,8 @@
 </nav>
 
 
-
-
 <!--底部footer-->
-<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-big">
   <div class="ui center aligned container">
 
     <!--访问量数据-->
@@ -85,7 +84,7 @@
           <a target="_blank" href="https://github.com/ShaoxiongDu" class="item">Github: Programmer-YYDS</a>
         </div>
       </div>
-      <!--个人说明-->
+
       <!--个人说明-->
       <div class="four wide column">
         <h4 class="ui inverted header me-opacity-mini">Blog</h4>
@@ -104,8 +103,7 @@
     <div class="ui inverted list link">
       <p class="item">Copyright© 2020-2021 tyf All Rights Reserved</p>
       <p class="item">通讯地址: 南京邮电大学</p>
-      <a class="item" target="_blank" href='https://beian.miit.gov.cn/'>测试</a>
-
+      <a class="item" target="_blank"  href="https://github.com/ShaoxiongDu/ShaoxiongDu_Blog">网站还在处于测试阶段, 本网站基于开源项目改造</a>
     </div>
   </div>
 

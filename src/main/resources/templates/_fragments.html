@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head(title)">
   <meta charset="UTF-8">
   <!--百度搜索站长管理-->
@@ -18,11 +19,11 @@
 <body>
 
 
-<!--导航-->
-<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+  <!--导航-->
+  <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
     <div class="ui inverted secondary stackable menu" style="font-size: 17px">
-      <a href="http://www.shaoxiongdu.top/admin" target="_blank" ><h2 class="ui teal header item" th:text="${session.topTitle}"></h2></a>
+      <a href="http://imtyf.icu:9999/admin" target="_blank" ><h2 class="ui teal header item" th:text="${session.topTitle}"></h2></a>
       <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"></i>首页</a>
       <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"></i>分类</a>
       <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"></i>标签</a>
@@ -45,71 +46,71 @@
   </a>
 </nav>
 
-<!--底部footer-->
-<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
-  <div class="ui center aligned container">
 
-    <!--访问量数据-->
-   <!-- <p>访问量 : <span th:text="${session.views}"></span></p>-->
+  <!--底部-->
+  <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-big">
+    <div class="ui center aligned container">
 
-    <p class="item">勉强运行 : <span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
-    <br><br>
+      <!--访问量数据-->
+      <h4 class="item">本小站已运行 : <span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </h4>
 
-<!--    <div class="ui inverted divided stackable grid">-->
+      <br>
+      <br>
 
-<!--      &lt;!&ndash;微信二维码&ndash;&gt;-->
-<!--      <div class="four wide column">-->
-<!--        <h4 class="ui inverted header me-opacity-mini" >微信公众号</h4>-->
-<!--        <div class="ui inverted link list">-->
+      <div class="ui inverted divided stackable grid">
 
-<!--            <a class="item" href="#"><img th:src="@{/images/CodeKey.jpg}" title="欢迎扫码关注!"  class="ui rounded image"  style="width: 100px"></a>-->
+        <!--微信二维码-->
+        <div class="four wide column">
+          <div class="ui inverted link list">
+            <div class="item">
+              <img th:src="@{/images/wechat.jpg}"  class="ui rounded image" alt="" style="width: 110px">
+            </div>
+          </div>
+        </div>
 
-<!--        </div>-->
-<!--      </div>-->
+        <!--推荐博客-->
+        <div class="four wide column">
+          <h4 class="ui inverted header me-opacity-mini" >最新博客</h4>
+          <div id="newblog-container">
+            <div class="ui inverted link list" th:fragment="newblogList">
+              <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>
+            </div>
+          </div>
+        </div>
 
-<!--      &lt;!&ndash;推荐博客&ndash;&gt;-->
-<!--      <div class="four wide column">-->
-<!--        <h4 class="ui inverted header me-opacity-mini" >最新推荐</h4>-->
-<!--        <div id="newblog-container">-->
-<!--          <div class="ui inverted link list" th:fragment="newblogList">-->
-<!--            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+        <!--联系作者-->
+        <div class="four wide column">
+          <h4 class="ui inverted header me-opacity-mini">联系作者</h4>
+          <div class="ui inverted list link">
+            <p class="item">邮箱: tan13621251388@gmail.com</p>
+            <p class="item">QQ: 1807886910</p>
+            <p class="item">手机号: 16712866996</p>
+            <a target="_blank" href="https://github.com/ShaoxiongDu" class="item">Github: Programmer-YYDS</a>
+          </div>
+        </div>
 
-<!--      &lt;!&ndash;联系作者&ndash;&gt;-->
-<!--      <div class="four wide column">-->
-<!--        <h4 class="ui inverted header me-opacity-mini">联系作者</h4>-->
-<!--        <div class="ui inverted list link">-->
-<!--          <p class="item">QQ: 740593369</p>-->
-<!--          <p class="item">Github: ShaoxiongDu</p>-->
-<!--          <p class="item">邮箱: Shaoxiong.dev@aliyun.com</p>-->
-<!--          <p class="item">地址: 山西省太原市太原科技大学南校区</p>-->
+        <!--个人说明-->
+        <div class="four wide column">
+          <h4 class="ui inverted header me-opacity-mini">Blog</h4>
+          <div class="ui inverted list link">
+            <p class="item">自己</p>
+            <p class="item">一人</p>
+            <p class="item">做想做的</p>
+          </div>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <!--版权说明-->
 
-<!--        </div>-->
-<!--      </div>-->
-<!--      &lt;!&ndash;个人说明&ndash;&gt;-->
+      <!--ICP备案号-->
+      <div class="ui inverted list link">
+        <p class="item">Copyright© 2020-2021 tyf All Rights Reserved</p>
+        <p class="item">通讯地址: 南京邮电大学</p>
+        <a class="item" target="_blank"  href="https://github.com/ShaoxiongDu/ShaoxiongDu_Blog">网站还在处于测试阶段, 本网站基于开源项目改造</a>
+      </div>
+    </div>
 
-<!--      <div class="four wide column">-->
-<!--        <h4 class="ui inverted header me-opacity-mini">Blog</h4>-->
-<!--        <div class="ui inverted list link">-->
-<!--          <p class="item">每个人都有属于自己的一片森林</p>-->
-<!--          <p class="item">也许我们 从来不曾去过，</p>-->
-<!--          <p class="item">但它一直在那里，总会在那里。</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-    <div class="ui inverted section divider"></div>
-
-
-    <!--ICP备案号-->
-<!--    <div class="ui inverted list link">-->
-<!--      <p style="color: #AAAAAA" >版权所有© 2020-2021 杜少雄 保留所有权利 <a style="color:#AAAAAA;" target="_blank" href='https://beian.miit.gov.cn/'>晋ICP备2020012997号-1</a> </p>-->
-
-<!--    </div>-->
-  </div>
-
-</footer>
+  </footer>
 
 <th:block th:fragment="script">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>

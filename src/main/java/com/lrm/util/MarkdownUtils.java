@@ -75,7 +75,4 @@ public class MarkdownUtils {
         }
     }
 
-
-    public static void main(String[] args) {
-    }
 }

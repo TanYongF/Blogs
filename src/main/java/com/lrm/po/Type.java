@@ -1,6 +1,7 @@
 package com.lrm.po;
 
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Type {
     @OneToMany(mappedBy = "type")
     private List<Blog> blogs = new ArrayList<>();
 
+
     @Override
     public String toString() {
         return "Type{" +
@@ -31,4 +33,5 @@ public class Type {
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }

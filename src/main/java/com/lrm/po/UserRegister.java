@@ -1,8 +1,11 @@
 package com.lrm.po;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @Describe: 用户注册信息pojo
@@ -11,6 +14,9 @@ import javax.persistence.Entity;
  **/
 
 @Data
+@Table(name = "t_user_register")
+@ToString
+@Entity
 public class UserRegister {
     /**
      * 用户邮箱
@@ -20,6 +26,7 @@ public class UserRegister {
     /**
      * 用户Username
      */
+    @Id
     private String username;
 
     /**

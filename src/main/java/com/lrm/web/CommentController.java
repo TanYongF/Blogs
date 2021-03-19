@@ -29,6 +29,12 @@ public class CommentController {
     @Value("${comment.avatar}")
     private String avatar;
 
+    /**
+     * 根据获得commentList
+     * @param blogId        博客ID
+     * @param model         视图层
+     * @return              th:fragment
+     */
     @GetMapping("/comments/{blogId}")
     public String comments(@PathVariable Long blogId, Model model) {
         model.addAttribute("comments", commentService.listCommentByBlogId(blogId));

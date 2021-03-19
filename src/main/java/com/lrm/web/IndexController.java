@@ -3,6 +3,7 @@ package com.lrm.web;
 import com.alibaba.fastjson.JSONObject;
 
 import com.lrm.po.Record;
+import com.lrm.po.User;
 import com.lrm.service.*;
 
 import com.lrm.util.HttpClient;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,10 +47,11 @@ public class IndexController {
     private WebsiteInfoService websiteInfoService;
 
     @GetMapping("/")
-    public String index(@PageableDefault(size = 8, sort = {"createTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model,
                         HttpSession session,
                         HttpServletRequest httpServletRequest) {
+        //更新时间降序排序
         model.addAttribute("page",blogService.listBlog(pageable));
         model.addAttribute("types", typeService.listType());
         model.addAttribute("tags", tagService.listTag());

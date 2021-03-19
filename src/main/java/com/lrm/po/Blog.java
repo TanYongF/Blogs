@@ -24,8 +24,6 @@ public class Blog {
 
     private String title;
 
-//    @Basic(fetch = FetchType.LAZY)
-//    @Lob
     @Transient
     private String content;
 
@@ -89,6 +87,8 @@ public class Blog {
             return tagIds;
         }
     }
+
+
 
 
 }

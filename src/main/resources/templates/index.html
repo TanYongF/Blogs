@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DSX个人博客</title>
+  <title>Tyf个人博客</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
   <link rel="stylesheet" href="../static/css/me.css" >
 </head>
@@ -65,7 +66,7 @@
                     <div class="eleven wide column">
                       <div class="ui mini horizontal link list">
                         <div class="item">
-                          <h4 th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}"></h4>
+                          <h4 th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></h4>
                         </div>
                         <div class="item">
                           <h4 th:text="${ '浏览:' + blog.views}"></h4>

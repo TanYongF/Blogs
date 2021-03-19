@@ -2,6 +2,7 @@ package com.lrm.po;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Entity
 @NoArgsConstructor
 @Data
+@ToString
 public class Record {
 
     @Id
@@ -30,15 +32,5 @@ public class Record {
      * 访问总次数
      */
     private Long totalNumberOfVisits;
-
-    @Override
-    public String toString() {
-        return "访问记录[" +
-                "记录ID:" + id +
-                ", IP='" + ip + '\'' +
-                ", 地区='" + address + '\'' +
-                ", 访问时间=" + lastVisitTime +
-                ", 总访问次数=" + totalNumberOfVisits +
-                ']';
-    }
+    
 }

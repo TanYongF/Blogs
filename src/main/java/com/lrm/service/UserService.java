@@ -11,7 +11,16 @@ public interface UserService extends UserDetailsService{
 
     User checkUser(String username, String password);
 
+    /**
+     *
+     * @param user           用户对象
+     * @return              是否成功注册\
+     * TODO:完善一下注册接口
+     */
     Boolean registerUsr(User user);
 
     User findUserByUsername(String username);
+
+    User updateInfo(User user);
+
 }

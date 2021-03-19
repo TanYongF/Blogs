@@ -17,9 +17,9 @@ import javax.persistence.FetchType;
  **/
 
 @Data
-@ToString
 @Accessors(chain = true)
 @Document(collection = "content")
+@ToString
 public class Content {
 
     @Id

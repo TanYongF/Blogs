@@ -14,14 +14,31 @@ import java.util.Map;
 
 public interface BlogService {
 
+
+    /**
+     * 根据id获取博客
+     * @param id    Blog ID
+     * @return      Blog
+     **/
     Blog getBlog(Long id);
 
+    /**
+     * 转换Markdown格式笔记为 Html 格式便于显示
+     * @param id    blogID
+     * @return      Blog对象
+     **/
     Blog getAndConvert(Long id);
 
     Page<Blog> listBlog(Pageable pageable,BlogQuery blog);
 
     Page<Blog> listBlog(Pageable pageable);
 
+    /**
+     * 通过tagId进行查找博客内容
+     * @param tagId
+     * @param pageable
+     * @return
+     **/
     Page<Blog> listBlog(Long tagId,Pageable pageable);
 
 //    Page<Blog> listBlog(String query,Pageable pageable);

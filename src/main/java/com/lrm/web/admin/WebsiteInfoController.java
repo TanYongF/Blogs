@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @Author tyf
- * @Description 网站信息修改
+ * @Description 网站基本信息修改
  * @Date 14:01 2021/3/15
  **/
 @Controller
@@ -35,14 +35,13 @@ public class WebsiteInfoController {
     public String updateAboutMeImageUrl(String aboutMeImageUrl,HttpSession session){
         String s = websiteInfoService.updateAboutMeImageUrl(aboutMeImageUrl);
         session.setAttribute("aboutMeImageUrl",s);
-        return "/admin/websiteInfo";
+        return "redirect:websiteInfo";
     }
-
 
     @PostMapping("/admin/updateTopTitle")
     public String updateTopTitle(String topTitle,HttpSession session){
         String s = websiteInfoService.updateTopTitle(topTitle);
         session.setAttribute("topTitle",s);
-        return "/admin/websiteInfo";
+        return "redirect:websiteInfo";
     }
 }

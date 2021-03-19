@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,8 +91,8 @@
           </div>
         </div>
       </div>
-
     </div>
+    <!--作者信息-->
     <div class="ui attached positive message" th:if="${blog.shareStatement}">
       <!--博客信息-->
       <div class="ui middle aligned grid">
@@ -109,10 +110,12 @@
         </div>
       </div>
     </div>
+
+
     <div  class="ui bottom attached segment" th:if="${blog.commentabled}">
       <!--留言区域列表-->
       <div id="comment-container"  class="ui teal segment">
-        <div th:fragment="commentList">
+        <div  th:fragment="commentList">
           <div class="ui threaded comments" style="max-width: 100%;">
             <h3 class="ui dividing header">评论</h3>
             <div class="comment" th:each="comment : ${comments}">
@@ -162,6 +165,7 @@
           </div>
         </div>
       </div>
+      <!--评论框-->
       <div id="comment-form" class="ui form">
         <input type="hidden" name="blog.id" th:value="${blog.id}">
         <input type="hidden" name="parentComment.id" value="-1">
@@ -191,6 +195,8 @@
   </div>
 </div>
 
+
+  <!--目录小功能-->
 <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
   <div class="ui vertical icon buttons ">
     <button type="button" class="ui toc teal button" >目录</button>
@@ -318,7 +324,7 @@
   });
 
   $(function () {
-    $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"comments/6");
+    $("#comment-container").load([[@{/comments/{id}(id=${blog.id})}]]);
   });
 
 

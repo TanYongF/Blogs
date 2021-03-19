@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head th:replace="admin/_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>博客管理</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/css/me.css">
+  <style>
+    body{
+      background-image: url("https://api.dujin.org/bing/1920.php");
+    }
+  </style>
 </head>
-<body>
+<body >
 
   <!--导航-->
   <nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
@@ -42,14 +48,57 @@
     <div class="ui container">
       <div class="ui success large  message">
         <span>
-          <h3>Hi,</h3>
+          <h3>你好,</h3>
             <span th:text="${session.user.nickname}"></span><span>,欢迎登陆!</span>
         </span>
       </div>
-
-      <img src="https://api.qinor.cn/img" alt="" class="ui rounded bordered fluid image">
+      <!--图片首页-->
+      <img src="https://api.qinor.cn/img" th:src="${session.aboutMeImageUrl}"   alt="" class="ui rounded bordered fluid image">
     </div>
+    <!--用户信息-->
+    <div class="ui container">
+      <div  class="ui secondary segment form">
+
+        <form th:action="@{/admin/updateInfo}" method="post">
+            <div class="required field">
+              <div class="ui left labeled input">
+                <label class="ui teal basic label">昵称</label>
+                <input type="text" name="aboutMeImageUrl" th:value="${session.user.nickname}">
+                <button class="ui button label teal basis" type="submit">修改</button>
+              </div>
+            </div>
+            <br>
+            <div class="required field">
+              <div class="ui left labeled input">
+                <label class="ui teal basic label">用户邮箱</label>
+                <input type="text" name="topTitle" th:value="${session.user.email}">
+                <button class="ui button label teal basis" type="submit">修改</button>
+              </div>
+            </div>
+            <br>
+            <div class="required field">
+              <div class="ui left labeled input">
+                <label class="ui teal basic label">用户头像</label>
+                <input type="text" name="topTitle" th:value="${session.user.avatar}">
+                <button class="ui button label teal basis" type="submit">修改</button>
+              </div>
+            </div>
+          <br>
+          <div class="required field">
+            <div class="ui left labeled input">
+              <label class="ui teal basic label">网站个人简介</label>
+              <input type="text" name="topTitle" th:value="${session.user.avatar}">
+              <button class="ui button label teal basis" type="submit">修改</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
   </div>
+
 
   <br>
   <br>

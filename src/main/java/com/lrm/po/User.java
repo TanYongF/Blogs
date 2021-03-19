@@ -1,6 +1,9 @@
 package com.lrm.po;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +20,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_user")
-@Data
+@Getter
+@Setter
 public class User implements UserDetails {
 
     @Id
@@ -75,18 +79,7 @@ public class User implements UserDetails {
         return AuthorityUtils.commaSeparatedStringToAuthorityList("admin");
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", type=" + type +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
-    }
+
+
+
 }
