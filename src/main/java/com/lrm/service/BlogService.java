@@ -41,12 +41,22 @@ public interface BlogService {
      **/
     Page<Blog> listBlog(Long tagId,Pageable pageable);
 
-//    Page<Blog> listBlog(String query,Pageable pageable);
+    /**
+     * 通过query来查询博客
+     * @param query             关键字
+     * @param pageable          页面
+     * @return                  Page
+     */
+    Page<Blog> listBlog(String query,Pageable pageable);
 
     List<Blog> listRecommendBlogTop(Integer size);
 
     Map<String,List<Blog>> archiveBlog();
 
+    /**
+     * 计算Blog的总个数
+     * @return         Blog个数
+     */
     Long countBlog();
 
     Blog saveBlog(Blog blog);

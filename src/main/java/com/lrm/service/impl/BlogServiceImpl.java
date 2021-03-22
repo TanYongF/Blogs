@@ -13,16 +13,14 @@ import com.lrm.util.MyBeanUtils;
 import com.lrm.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by limi on 2017/10/20.
@@ -111,16 +109,14 @@ public class BlogServiceImpl implements BlogService {
         },pageable);
     }
 
-//    /**
-//     * FIXME:通过查找关键字来实现查找响应博客
-//     * @param query
-//     * @param pageable
-//     * @return  Page
-//     */
-//    @Override
-//    public Page<Blog> listBlog(String query, Pageable pageable) {
-//        return blogRepository.findByQuery(query,pageable);
-//    }
+    @Override
+    public Page<Blog> listBlog(String query, Pageable pageable) {
+        //获得博客内容的ID
+        List<String> contents = contentRepository.findByContentLike(query).stream().map(Content::getId).distinct().collect(Collectors.toList());
+       //获取所有的博客
+        List<Blog> blogs = blogRepository.findByContentIdIn(contents);
+        return new PageImpl<Blog>(blogs, pageable, blogs.size());
+    }
 
     @Override
     public List<Blog> listRecommendBlogTop(Integer size) {
@@ -142,10 +138,7 @@ public class BlogServiceImpl implements BlogService {
         return map;
     }
 
-    /**
-     * 计算Blog的总个数
-     * @return         Blog个数
-     */
+
     @Override
     public Long countBlog() {
         return blogRepository.count();

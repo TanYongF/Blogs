@@ -1,9 +1,6 @@
 package com.lrm.security.conf;
 
-import com.lrm.security.process.SecureAuthenticationEntryPoint;
-import com.lrm.security.process.SecureAuthenticationFailureHandler;
-import com.lrm.security.process.SecureAuthenticationSuccessHandler;
-import com.lrm.security.process.SecureLogoutSuccessHandler;
+import com.lrm.security.process.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +34,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Autowired
     SecureAuthenticationEntryPoint entryPoint;
+    
+    @Autowired
+    SecureSessionExpiredHandler secureSessionExpiredHandler;
 
     private static final String[] NO_AUTH_LIST = {
             "/",
@@ -73,9 +73,14 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                .and()
                    .logout().logoutUrl("/admin/logout").permitAll()
                    .addLogoutHandler(logoutSuccessHandler)
-                   .logoutSuccessUrl("/admin")
+                   .logoutSuccessUrl("/admin/logoutSuccess")
                .and().exceptionHandling()
                     .authenticationEntryPoint(entryPoint)
+               .and()
+                    .sessionManagement().maximumSessions(1)
+                    .maxSessionsPreventsLogin(true)
+                    .expiredSessionStrategy(secureSessionExpiredHandler)
+               .and()
                .and().authorizeRequests().antMatchers(NO_AUTH_LIST).permitAll().
                anyRequest().authenticated();
     }

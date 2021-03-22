@@ -21,6 +21,7 @@ public class SecureAuthenticationFailureHandler implements AuthenticationFailure
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         System.out.println("登录失败");
+
         httpServletResponse.sendRedirect("/admin/error");
     }
 }

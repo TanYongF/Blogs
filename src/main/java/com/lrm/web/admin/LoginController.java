@@ -11,10 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -37,7 +34,7 @@ public class LoginController {
     private WebsiteInfoService websiteInfoService;
 
     /**
-     * 登录成功页面
+     * 登录页面
      * @param session               用户Session
      * @param authentication        用户验证信息
      * @return                      返回视图
@@ -45,16 +42,19 @@ public class LoginController {
     @GetMapping
     public String indexPage(Authentication authentication,
                             HttpSession session,
-                            ModelMap modelMap) {
+                            ModelMap modelMap,
+                            @ModelAttribute(value = "message")String message) {
         if(authentication == null){
-            modelMap.addAttribute("message","请登录!");
+            if (message.isEmpty()){
+                message = "欢迎您的登录";
+            }
+            modelMap.addAttribute("message",message);
             return "admin/login";
         }
         User principal = (User) authentication.getPrincipal();
         User user = (User) userService.loadUserByUsername(principal.getUsername());
         //设置密码为空
         user.setPassword("\n");
-        System.out.println(user.toString());
         Assert.notNull(user,"不为空!");
         session.setAttribute("user", user);
         session.setAttribute("aboutMeImageUrl", websiteInfoService.getAboutMeImageUrl());
@@ -67,12 +67,23 @@ public class LoginController {
 
     /**
      * 登录失败页面
-     * @param attributes
+     * @param redirectAttributes
      * @return
      */
     @GetMapping("/error")
-    public String falseToLogin( RedirectAttributes attributes){
-        attributes.addFlashAttribute("message","用户名和密码错误");
+    public String falseToLogin(RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("message","用户密码错误,请重新登录!");
+        return "redirect:/admin";
+    }
+
+    /**
+     * 用户登出成功接口
+     * @param redirectAttributes        转发属性
+     * @return
+     */
+    @GetMapping("/logoutSuccess")
+    public String logoutSuccess(RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("message", "您已成功登出!");
         return "redirect:/admin";
     }
 

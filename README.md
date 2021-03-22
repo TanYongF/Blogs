@@ -27,7 +27,7 @@
 ##### *注:  如果要修改端口号  主配置文件即可修改
 
 ## 三.赞赏
-此项目是根据[博客项目](https://github.com/ShaoxiongDu/ShaoxiongDu_Blog) 变体而来.但是做出了一下改变:
+此项目是根据[博客项目](https://github.com/ShaoxiongDu/ShaoxiongDu_Blog) 变体而来.但是做出了以下改变:
 1. 权限采用了Spring Security框架
 2. 后端接入了MongoDB的文档型数据库以便更快的查询数据
 3. 完善了其他的一些功能
